@@ -4,7 +4,7 @@ To address this challenge, HelpMateAI_News Analysis is designed as a Retrieval-A
 
 # DATA SOURCES
 Our system allows users to manually upload PDFs containing the latest government reports, policy documents, and legal rulings. These documents are preprocessed, indexed, and stored in a vector database for future queries.
-## Data Collection Process
+### Data Collection Process
 •	Users upload policy papers, legal reports, financial statements, or meeting transcripts
 •	 Documents are split into smaller chunks and embedded using sentence-transformers
 •	 The ChromaDB vector store enables efficient semantic search and retrieval
@@ -12,14 +12,14 @@ By structuring the data pipeline this way, the system remains adaptable to evolv
 
 # SYSTEM DESIGN & IMPLEMENTATION
 The project follows a structured pipeline for document processing, storage, retrieval, and response generation:
-## (a) Document Processing: PyMuPDFLoader & RecursiveCharacterTextSplitter
+### (a) Document Processing: PyMuPDFLoader & RecursiveCharacterTextSplitter
 RecursiveCharacterTextSplitter chunks large documents into 200-character segments with a 20-character overlap
 This prevents context loss while enabling efficient retrieval
-## (b) Embedding & Vector Storage: HuggingFaceEmbeddings + ChromaDB
+### (b) Embedding & Vector Storage: HuggingFaceEmbeddings + ChromaDB
 Each chunk is converted into a numerical vector representation
 These embeddings are stored in ChromaDB, allowing fast semantic search
 Queries retrieve the most contextually relevant chunks for response generation
-## (c) Query Engine: RetrievalQA with Groq Llama 3
+### (c) Query Engine: RetrievalQA with Groq Llama 3
 User queries trigger retrieval from ChromaDB
 Retrieved document chunks are fed into Llama 3 via Groq
 The LLM generates a coherent, context-aware response
@@ -28,7 +28,7 @@ By leveraging this modular approach, our system ensures scalability, efficiency,
 # FLOW CHART
 ![image](https://github.com/user-attachments/assets/555eb34f-5d94-4bfb-991a-a3f3f273185f)
 
-# Steps to run the python file
+# STEPS TO RUN THE PYTHON FILE
 This code is written to run in colab environment.
 1. Run  all the cell at beginning to install the requirements.
 2. Mount your google drive.  
